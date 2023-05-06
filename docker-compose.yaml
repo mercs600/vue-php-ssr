@@ -1,0 +1,25 @@
+# docker-compose.dev.yaml
+version: '3.4'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./:/var/www/html
+    depends_on:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - composer
+  composer:
+    image: composer:2
+    volumes:
+      - ./:/app

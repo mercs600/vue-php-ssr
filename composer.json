@@ -1,0 +1,11 @@
+{
+    "name": "root/html",
+    "require": {
+        "spatie/server-side-rendering": "^0.3.2"
+    },
+    "authors": [
+        {
+            "name": "merc"
+        }
+    ]
+}
